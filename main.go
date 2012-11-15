@@ -81,7 +81,7 @@ func main() {
 	if valueString == *ownIp {
 		output = res[0]
 	} else {
-		output = value
+		output = valueString
 	}
 
 	fmt.Print(output)
