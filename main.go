@@ -15,8 +15,10 @@ var (
 	port        = flag.String("port", "8046", "The port to test the server on")
 	servers     = flag.String("servers", "localhost,localhost,localhost", "The servers to test, either strings or IPs")
 	protocol    = flag.String("protocol", "udp", "Use TCP or UDP")
+	ownIp       = flag.String("ownip", "127.0.0.1", "The originating IP of the interface you are connecting from.")
 	timeout     = flag.Int("timeout", 1000, "Timeout in Milliseconds before dialling the next server.")
 	clustername = flag.String("cluster", "local", "Name of the cluster, local is default")
+	output      string
 )
 
 func appendIfMissing(slice []string, s string) (output []string) {
@@ -75,6 +77,12 @@ func main() {
 	value, _, _ := doozer.Get(query, nil)
 	// HANDLE THE ERROR
 
-	fmt.Printf("%s\n", value)
+	if value == *ownIp {
+		output = res[0]
+	} else {
+		output = value
+	}
+
+	fmt.Printf("%s", output)
 
 }
