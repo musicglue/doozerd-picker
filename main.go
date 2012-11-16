@@ -73,7 +73,7 @@ func main() {
 		// Do some proper error handling here I suppose...
 	}
 
-	resolved, _ := net.LookupIP(strings.split(res[0], ":")[0])
+	resolved, _ := net.LookupIP(strings.Split(res[0], ":")[0])
 
 	fmt.Print(resolved)
 
