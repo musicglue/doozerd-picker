@@ -77,11 +77,13 @@ func main() {
 	value, _, _ := doozer.Get(query, nil)
 	// HANDLE THE ERROR
 
-	valueString := fmt.Sprintf("%s", value)
+	valueString := string(value)
 	if valueString == *ownIp {
 		output = res[0]
+		fmt.Println(output)
 	} else {
 		output = valueString
+		fmt.Println(output)
 	}
 
 	fmt.Print(output)
