@@ -74,7 +74,7 @@ func main() {
 	}
 
 	resolved, _ := net.LookupIP(strings.Split(res[0], ":")[0])
-	output := string(resolved[0]) + ":" + *port
+	output := string(resolved) + ":" + *port
 	fmt.Print(output)
 
 }
