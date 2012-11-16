@@ -75,6 +75,6 @@ func main() {
 
 	resolved, _ := net.LookupIP(res[0])
 
-	fmt.Print(resolved[0])
+	fmt.Print(resolved)
 
 }
