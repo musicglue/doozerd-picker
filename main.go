@@ -65,27 +65,14 @@ func main() {
 	}
 
 	// Get latest Revision of DB
-	rev, _ := doozer.Rev()
+	_, rerr := doozer.Rev()
 	// HANDLE THE ERROR
 
-	// Get NS key to query
-	key, _ := doozer.Getdir("/ctl/ns/"+*clustername, rev, 0, 1)
-	// HANDLE THE ERROR
-
-	query := fmt.Sprintf("/ctl/ns/%s/%s", *clustername, key[0])
-	// Get IP Address to bind to
-	value, _, _ := doozer.Get(query, nil)
-	// HANDLE THE ERROR
-
-	valueString := string(value)
-	if valueString == *ownIp {
-		output = res[0]
-		fmt.Println("MATCHED:", output)
-	} else {
-		output = valueString
-		fmt.Println(output)
+	if rerr != nil {
+		panic("Shit, it's an Errrrrrorrrr!")
+		// Do some proper error handling here I suppose...
 	}
 
-	fmt.Print(output)
+	fmt.Print(res[0])
 
 }
