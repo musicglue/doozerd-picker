@@ -80,7 +80,7 @@ func main() {
 	valueString := string(value)
 	if valueString == *ownIp {
 		output = res[0]
-		fmt.Println("MATCHED:", output, len(output))
+		fmt.Println("MATCHED:", output)
 	} else {
 		output = valueString
 		fmt.Println(output)
