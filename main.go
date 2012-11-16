@@ -73,8 +73,9 @@ func main() {
 		// Do some proper error handling here I suppose...
 	}
 
-	resolved, _ := net.LookupIP(strings.Split(res[0], ":")[0])
-	output := string(resolved) + ":" + *port
+	host, _, _ := net.SplitHostPort(res[0])
+	resolved, _ := net.LookupIP(host)
+	output := net.JoinHostPort(resolved, *port)
 	fmt.Print(output)
 
 }
