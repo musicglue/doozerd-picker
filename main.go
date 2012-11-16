@@ -73,6 +73,8 @@ func main() {
 		// Do some proper error handling here I suppose...
 	}
 
-	fmt.Print(res[0])
+	resolved, _ := net.LookupIP(res[0])
+
+	fmt.Print(resolved[0])
 
 }
