@@ -75,7 +75,7 @@ func main() {
 
 	host, _, _ := net.SplitHostPort(res[0])
 	resolved, _ := net.LookupIP(host)
-	output := net.JoinHostPort(resolved.String(), *port)
+	output := net.JoinHostPort(resolved[0].String(), *port)
 	fmt.Print(output)
 
 }
